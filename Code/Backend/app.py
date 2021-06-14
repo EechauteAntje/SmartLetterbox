@@ -130,21 +130,6 @@ def pir():
                 LCD.send_instruction(0x01)
 
         vorige_waarde_PIR = waarde_pir
-        # data_pir = DataRepository.read_history_by_deviceID_today(2, 5)
-        # list = []
-        # for Waarde in data_pir:
-        #     DeviceID = Waarde['DeviceID']
-        #     ActionID = Waarde['ActionID']
-        #     Date = str(Waarde['Date'])
-        #     Time = str(Waarde['Time'])
-        #     loc = Time.rfind(':')
-        #     Time = Time[:loc]
-        #     isDelivered = Waarde['IsDelivered']
-        #     list.append({'ActionID': ActionID, 'DeviceID': DeviceID,
-        #                  'Date': Date, 'Time': Time, 'IsDelivered': isDelivered})
-        # socketio.emit('B2F_dataPir',
-        #               list, broadcast=True)
-
         time.sleep(1)
 
 
@@ -153,12 +138,9 @@ threading.Timer(1, pir).start()
 
 def accelero():
     global vorige_waarde_MPU
-    # global waardex
     while True:
         waardey = round(MPU.read_data_versnelling()[1], 1)
-        # print(f'waarde accelero: {waardey}')
         if waardey != vorige_waarde_MPU:
-            # socketio.emit('B2F_accelero', {'value': waardey}, broadcast=True)
             now = datetime.datetime.now()
             if waardey > 0.8:
 
@@ -174,20 +156,6 @@ def accelero():
                     "%Y-%m-%d")), 'Time':  str(now.strftime("%H:%M")), 'ActionID': 1, 'IsDelivered': 0, 'lengthData': length_data}, broadcast=True)
 
         vorige_waarde_MPU = waardey
-        # data_accelero = DataRepository.read_history_by_deviceID_today(1, 1)
-        # list = []
-        # for Waarde in data_accelero:
-        #     DeviceID = Waarde['DeviceID']
-        #     ActionID = Waarde['ActionID']
-        #     Date = str(Waarde['Date'])
-        #     Time = str(Waarde['Time'])
-        #     loc = Time.rfind(':')
-        #     Time = Time[:loc]
-        #     isDelivered = Waarde['IsDelivered']
-        #     list.append({'ActionID': ActionID, 'DeviceID': DeviceID,
-        #                  'Date': Date, 'Time': Time, 'IsDelivered': isDelivered})
-        # socketio.emit('B2F_dataAccelero',
-        #               list, broadcast=True)
         time.sleep(2)
 
 
@@ -199,42 +167,18 @@ def load_cell():
     global magnet_value
     global button_value
     while True:
-        # if magnet_value == 1:
-        #     time.sleep(1)
         print(hx.get_weight(5))
 
-        # if button_value == 1:
-        #     hx.reset()
-        #     hx.tare()
-        #     break
-
         if button_value == 1:
-            # print(f'magnet: {magnet_value}')
             val = int(10 * round(float(hx.get_weight(5))/10))
             exact = hx.get_weight(5)
-            # list = []
-            # list.append(val)
-            # # print(list)
-            # weigth = round(sum(list)/len(list))
-            # if len(list) > 4:
-            #     print(list)
-            #     list = []
-            # weigth = int(5 * round(float(val)/5))
-            # print(weigt)
             if val > 0:
-                # time.sleep(1)
                 weight = int(10 * round(float(hx.get_weight(5))/10))
 
                 if weight > 0:
                     print(weight)
                     if val != vorige_waarde_load_cell:
                         now = datetime.datetime.now()
-                        # if weight > 1:
-                        #     print(f'gewicht: {weight}')
-                        #     DataRepository.insert_data_history(3, 3, 'sensor', now.strftime(
-                        #         "%Y-%m-%d"), now.strftime("%H:%M:%S"), 1, 1)
-                        #     DataRepository.update_is_delivered_accelero(1)
-                        #     DataRepository.update_is_delivered_pir(1)
 
                         last_Weight = DataRepository.read_last_weight()
                         if weight > (last_Weight['Value'] + 10):
@@ -247,24 +191,12 @@ def load_cell():
                                 DataRepository.update_is_delivered_pir(1)
                         vorige_waarde_load_cell = val
 
-                        # if weight < vorige_waarde_load_cell:
-                        #     DataRepository.insert_data_history(3, 4, 'sensor', now.strftime(
-                        #         "%Y-%m-%d"), now.strftime("%H:%M:%S"), 0, 0)
-                        #     DataRepository.delete_packages()
-                        #     print('kleiner dan')
-                        #     # weight = 0
-                        #     hx.reset()
-                        #     hx.tare()
-                        #     val = vorige_waarde_load_cell
-
             if val < 1:
-                # time.sleep(1)
                 weight = int(10 * round(float(hx.get_weight(5))/10))
                 print(weight)
                 if val != vorige_waarde_load_cell:
                     now = datetime.datetime.now()
                     if weight < 1:
-                        # print(f'gewicht: {weight}')
                         print(f'gewicht < 0: {weight}')
                         DataRepository.insert_data_history(3, 4, 'sensor', now.strftime(
                             "%Y-%m-%d"), now.strftime("%H:%M:%S"), 0, 0)
@@ -273,11 +205,6 @@ def load_cell():
                         DataRepository.delete_packages(limit)
                 vorige_waarde_load_cell = val
 
-
-            # if val < 0:
-            #     hx.reset()
-            #     hx.tare()
-            #     print("Tare done! Add weight now...")
 
             if exact < -2:
                 hx.reset()
@@ -307,7 +234,6 @@ def load_cell():
                     list_load.append({'HistoryID': HistoryID, 'ActionID': ActionID, 'DeviceID': DeviceID,
                                       'Type': Type, 'Date': Date, 'Time': Time, 'Value': Value})
             socketio.emit('B2F_weight', list_load, broadcast=True)
-            # time.sleep(1)
 
 
 threading.Timer(4, load_cell).start()
@@ -339,7 +265,6 @@ threading.Timer(2, warning).start()
 
 @socketio.on('F2B_btn_letterbox')
 def magnet(value):
-    # print(value['value'])
     global magnet_value
     global button_value
     magnet_value = value['value']
@@ -387,14 +312,14 @@ def button():
             print(f'button: {button_data}')
             socketio.emit(
                 'B2F_door', {"data": button_data, 'magnet': magnet_value})
-        #     if button_data == 0:
-        #         GPIO.output(25, GPIO.HIGH)
         vorige_waarde_button = button_data
-        # time.sleep(1)
+
 
 
 threading.Timer(1, button).start()
 
+
+# SOCKET IO
 
 @socketio.on('F2B_message')
 def lcd(text):
@@ -409,7 +334,9 @@ def delete_package(data):
     DataRepository.delete_packages(1)
     hx.reset()
     hx.tare()
+    
 
+# API ENDPOINTS
 
 @app.route(endpoint + '/dataAccelero/<id>', methods=['GET'])
 def get_data_accelero(id):
@@ -535,46 +462,14 @@ def get_data_Pir(id):
                                     'Type': Type, 'Date': Date, 'Time': Time, 'Value': Value, 'IsDelivered': IsDelivered})
             return jsonify(list_pir)
 
-# @app.route(endpoint + '/dataLoad', method = ['GET'])
-# def get_data_Load():
-#     if request.method == 'GET':
-#         data_load = DataRepository.read_history_by_deviceID(3, 3)
-#         list_load = []
-#         for Waarde in data_load:
-#             HistoryID = Waarde['HistoryID']
-#             DeviceID = Waarde['DeviceID']
-#             ActionID = Waarde['ActionID']
-#             Type = Waarde['Type']
-#             Date = str(Waarde['Date'])
-#             Time = str(Waarde['Time'])
-#             loc = Time.rfind(':')
-#             Time = Time[:loc]
-#             Value = Waarde['Value']
-#             if ActionID == 3:
-#                 list_load.append({'HistoryID': HistoryID, 'ActionID': ActionID, 'DeviceID': DeviceID,
-#                                     'Type': Type, 'Date': Date, 'Time': Time, 'Value': Value})
-#         return jsonify(list_load)
-
-
-# @app.route(endpoint + '/delete' ,methods=['DELETE'] )
-# def DeletePackage():
-#     if request.method == 'DELETE':
-#         DataRepository.delete_packages(1)
-
 
 print("**** Program started ****")
 
-# API ENDPOINTS
 
 
 @app.route('/')
 def hallo():
     return "Server is running, er zijn momenteel geen API endpoints beschikbaar."
-
-# @app.route('/history/<id>', methods=['GET'])
-# def accelero(id):
-#     if request.method == 'GET':
-#         return DataRepository.read_history_by_deviceID(id), 200
 
 # SOCKET IO
 
@@ -590,49 +485,3 @@ if __name__ == '__main__':
     socketio.run(app, debug=False, host='0.0.0.0')
     # socketio.run(app, host='0.0.0.0', debug=False)
 
-# if __name__ == '__main__':
-#     app.run(debug=True)
-
-
-# def data_pir():
-#     while True:
-#         data_pir = DataRepository.read_history_by_deviceID(
-#             2)
-#         list = []
-#         for Waarde in data_pir:
-#             HistoryID = Waarde['HistoryID']
-#             DeviceID = Waarde['DeviceID']
-#             ActionID = Waarde['ActionID']
-#             Type = Waarde['Type']
-#             Date = str(Waarde['Date'])
-#             Time = str(Waarde['Time'])
-#             Value = Waarde['Value']
-#             IsDelivered = Waarde['IsDelivered']
-#             list.append({'HistoryID': HistoryID, 'ActionID': ActionID, 'DeviceID': DeviceID,
-#                          'Type': Type, 'Date': Date, 'Time': Time, 'Value': Value, 'IsDelivered': IsDelivered})
-#         socketio.emit('B2F_dataPirForWarning', list, broadcast=True)
-#         time.sleep(3)
-
-
-# threading.Timer(3, data_pir).start()
-
-# def data_accelero():
-#     while True:
-#         data_accelero = DataRepository.read_history_by_deviceID(1)
-#         # print(data_accelero)
-#         list = []
-#         for Waarde in data_accelero:
-#             HistoryID = Waarde['HistoryID']
-#             DeviceID = Waarde['DeviceID']
-#             ActionID = Waarde['ActionID']
-#             Type = Waarde['Type']
-#             Date = str(Waarde['Date'])
-#             Time = str(Waarde['Time'])
-#             Value = Waarde['Value']
-#             IsDelivered = Waarde['IsDelivered']
-#             list.append({'HistoryID': HistoryID, 'ActionID': ActionID, 'DeviceID': DeviceID,
-#                          'Type': Type, 'Date': Date, 'Time': Time, 'Value': Value, 'IsDelivered': IsDelivered})
-#         socketio.emit('B2F_dataAcceleroForWarning', list, broadcast=True)
-#         time.sleep(3)
-
-# threading.Timer(3, data_accelero).start()
