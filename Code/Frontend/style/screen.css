@@ -1,0 +1,1356 @@
+/*------------------------------------*\
+  #FONTS
+\*------------------------------------*/
+
+/*------------------------------------*\
+  #GENERIC
+\*------------------------------------*/
+
+/*
+    Generic: Page
+    ---
+    Global page styles + universal box-sizing:
+*/
+
+html {
+  font-size: 16px;
+  line-height: 24px;
+  font-family: 'open-sans', Helvetica, arial, sans-serif;
+  color: #2e2e33;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f2f3f7;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Customize the background color to match your design.
+ */
+
+::selection {
+  background: #152ed6;
+  color: white;
+  text-shadow: none;
+}
+
+/*------------------------------------*\
+  #Elements
+\*------------------------------------*/
+
+/*
+    Elements: Images
+    ---
+    Default markup for images to make them responsive
+*/
+
+img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+/*
+    Elements: typography
+    ---
+    Default markup for typographic elements
+*/
+
+h1,
+h2,
+h3 {
+  color: #17171a;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 20px;
+  line-height: 24px;
+  margin: 0 0 24px;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 18px;
+  line-height: 24px;
+  margin: 0 0 4px;
+}
+
+h3 {
+  font-size: 26px;
+  line-height: 32px;
+  margin: 0 0 24px;
+}
+
+h4,
+h5,
+h6 {
+  font-size: 20px;
+  line-height: 24px;
+  margin: 0 0 24px;
+}
+
+p,
+ol,
+ul,
+dl,
+table,
+address,
+figure {
+  margin: 0 0 0px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+ul,
+ol {
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+li ul,
+li ol {
+  margin-bottom: 0;
+}
+
+blockquote {
+  font-style: normal;
+  font-size: 23px;
+  line-height: 32px;
+  margin: 0 0 24px;
+}
+
+blockquote * {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+figcaption {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 8px;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: #bebfcc;
+  margin: 0 0 24px;
+  color: #bebfcc;
+}
+
+a {
+  color: #3385ff;
+  transition: all 0.1s ease-in-out;
+}
+
+a:visited,
+a:active {
+  color: #152ed6;
+}
+
+a:hover,
+a:focus {
+  color: #152ed6;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+}
+
+/* Popover */
+.popover {
+  /* border: 2px dotted red; */
+  padding: 20px 8px 20px 16px;
+  /* margin-right: 100px; */
+  background-color: #fff;
+  border-radius: 7px;
+  box-shadow: 0px 3px 6px gray;
+  top: 15px !important;
+  left: 0px !important;
+}
+
+/* Popover Header */
+.popover-title {
+  /* background-color: #73AD21;
+  color: #FFFFFF; */
+  font-size: 18px;
+  /* line-height: 0px; */
+  /* text-align:center; */
+}
+
+/* Popover Body */
+.popover-content {
+  /* background-color: coral;
+  color: #FFFFFF; */
+  /* padding: 32px 40px 42px 16px; */
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.extra-info {
+  display: none;
+  line-height: 16px;
+  font-size: 12px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding: 75px 50px;
+}
+
+.info:hover .extra-info {
+  display: block;
+}
+
+.info {
+  font-size: 20px;
+  padding-left: 5px;
+  width: 20px;
+  border-radius: 15px;
+}
+
+.info:hover {
+  background-color: white;
+  /* padding: 0 0 0 5px;
+  padding: 20px 8px 20px 16px; */
+  padding: 45px 150px;
+  width: 315px;
+  text-align: left !important;
+}
+
+/*------------------------------------*\
+  #OBJECTS
+\*------------------------------------*/
+
+/*
+    Objects: Row
+    ---
+    Creates a horizontal row that stretches the viewport and adds padding around children
+*/
+
+.o-row {
+  position: relative;
+  padding: 24px 24px 0;
+  display: flow-root;
+}
+
+.o-row--sm {
+  padding: 16px 24px 0;
+}
+.o-row--dark {
+  background-color: #20223a;
+}
+/* size modifiers */
+
+.o-row--lg {
+  padding-top: 48px;
+  padding-bottom: 24px;
+}
+
+.o-row--xl {
+  padding-top: 72px;
+  padding-bottom: 48px;
+}
+
+@media (min-width: 768px) {
+  .o-row {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+
+  .o-row--md {
+    padding-top: 48px;
+    padding-bottom: 24px;
+  }
+
+  .o-row--lg {
+    padding-top: 72px;
+    padding-bottom: 48px;
+  }
+  .o-row--delivered {
+    padding-left: 134px;
+    padding-right: 124px;
+  }
+}
+
+@media (min-width: 992px) {
+  .o-row--xl {
+    padding-top: 96px;
+    padding-bottom: 72px;
+  }
+}
+
+/*
+    Objects: Container
+    ---
+    Creates a horizontal container that sets de global max-width
+*/
+
+.o-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 79.4375em; /* 79,4375 * 16px = 1271px */
+}
+
+/*
+    Objects: section
+    ---
+    Creates vertical whitespace between adjacent sections inside a row
+*/
+
+.o-section {
+  display: flow-root;
+}
+
+.o-section + .o-section {
+  margin-top: 24px;
+}
+
+@media (min-width: 768px) {
+  .o-section--lg + .o-section--lg,
+  .o-section--xl + .o-section--xl {
+    margin-top: 48px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .o-section--xl + .o-section--xl {
+    margin-top: 72px;
+  }
+}
+
+/*
+    Objects: Layout
+    ---
+    The layout object provides us with a column-style layout system. This object
+    contains the basic structural elements, but classes should be complemented
+    with width utilities
+*/
+
+.o-layout {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.o-layout__item {
+  flex-basis: 100%;
+}
+
+/* gutter modifiers, these affect o-layout__item too */
+
+.o-layout--gutter {
+  margin: 0 -12px;
+}
+
+.o-layout--gutter > .o-layout__item {
+  padding: 0 12px 0px;
+}
+
+.o-layout--gutter-sm {
+  margin: 0 -6px;
+}
+
+.o-layout--gutter-sm > .o-layout__item {
+  padding: 0 6px;
+}
+
+.o-layout--gutter-lg {
+  margin: 0 -24px;
+}
+
+.o-layout--gutter-lg > .o-layout__item {
+  padding: 0 24px;
+}
+
+.o-layout--gutter-xl {
+  margin: 0 -48px;
+}
+
+.o-layout--gutter-xl > .o-layout__item {
+  padding: 0 48px;
+}
+
+/* reverse horizontal row modifier */
+
+.o-layout--row-reverse {
+  flex-direction: row-reverse;
+}
+
+/* Horizontal alignment modifiers*/
+
+.o-layout--justify-start {
+  justify-content: flex-start;
+}
+
+.o-layout--justify-end {
+  justify-content: flex-end;
+}
+
+.o-layout--justify-center {
+  justify-content: center;
+}
+
+.o-layout--justify-space-around {
+  justify-content: space-around;
+}
+
+.o-layout--justify-space-evenly {
+  justify-content: space-evenly;
+}
+
+.o-layout--justify-space-between {
+  justify-content: space-between;
+}
+
+/* Vertical alignment modifiers */
+
+.o-layout--align-start {
+  align-items: flex-start;
+}
+
+.o-layout--align-end {
+  align-items: flex-end;
+}
+
+.o-layout--align-center {
+  align-items: center;
+}
+
+.o-layout--align-baseline {
+  align-items: baseline;
+}
+
+/* Vertical alignment modifiers that only work if there is more than one flex item */
+
+.o-layout--align-content-start {
+  align-content: start;
+}
+
+.o-layout--align-content-end {
+  align-content: end;
+}
+
+.o-layout--align-content-center {
+  align-content: center;
+}
+
+.o-layout--align-content-space-around {
+  align-content: space-around;
+}
+
+.o-layout--align-content-space-between {
+  align-content: space-between;
+}
+
+/*
+    Objects: List
+    ---
+    Small reusable object to remove default list styling from lists
+*/
+
+.o-list {
+  list-style: none;
+  padding: 0;
+}
+
+/*
+    Object: Button reset
+    ---
+    Small button reset object
+*/
+
+.o-button-reset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+}
+
+/*------------------------------------*\
+  #COMPONENTS
+\*------------------------------------*/
+
+.c-margin-svg {
+  margin: 13px 15px 12px 0;
+}
+/*
+    Component: Logo
+    ---
+    Website main logo
+*/
+
+.c-logo {
+  height: 32px;
+  display: flex;
+  align-items: center;
+}
+
+.c-logo__symbol {
+  height: 100%;
+}
+@media (min-width: 768px) {
+  .c-logo {
+    height: 40px;
+  }
+}
+
+/*
+    Component: header
+    ---
+    Main header of the website
+*/
+
+.c-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.c-header__nav {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .c-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .c-header__nav {
+    display: block;
+    padding-bottom: 26px;
+  }
+  .c-header__nav--main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 12px;
+  }
+
+  .c-header__mobile-nav-trigger {
+    display: none;
+  }
+}
+
+/*
+    Component: Nav
+    ---
+    Main navigation of the site
+*/
+
+.c-nav-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.c-nav-trigger__svg {
+  fill: #202024;
+  height: 100%;
+}
+
+.c-nav {
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.c-nav__link {
+  text-decoration: none;
+  font-weight: 500;
+  display: block;
+  padding: 8px 0;
+}
+
+.c-nav__linkLogo {
+  text-decoration: none;
+}
+
+/* .c-nav__link, */
+.c-nav__link:visited,
+.c-nav__link:active {
+  color: #17171a;
+}
+
+.is-selected .c-nav__link,
+.c-nav__link:hover,
+.c-nav__link:focus {
+  color: #0015a8;
+}
+
+@media (min-width: 992px) {
+  .c-nav__list {
+    display: flex;
+    align-items: center;
+    margin-left: -16px;
+    margin-right: -16px;
+  }
+
+  .c-nav__link {
+    padding: 12px 16px;
+  }
+
+  .c-nav__item--cta {
+    margin-left: 0px;
+  }
+}
+/*
+    Component: CTA link
+    ---
+    Small cta link with custom animation
+*/
+
+.c-link-cta {
+  display: inline-block;
+  text-decoration: none;
+  /* letter-spacing: 2px; */
+  font-size: 16px;
+  line-height: 40px;
+  font-weight: 600;
+  padding: 11px 60px;
+  transition-duration: 0.25s;
+  transition-timing-function: ease-in-out;
+  background: #152ed6;
+  background-size: 200% auto;
+  border-radius: 4px;
+  box-shadow: 0px 3px 6px gray;
+}
+.c-link-cta__large {
+  padding: 18px 30px;
+}
+
+.c-link-cta,
+.c-link-cta:visited,
+.c-link-cta:active {
+  color: #fff;
+}
+
+.c-link-cta:hover {
+  color: #f2f3f7;
+  background-position: right center;
+  box-shadow: inset 0 0 0 1px rgba(138, 140, 153, 0.4), 0 0 7px rgba(21, 46, 214, 0.8);
+}
+
+@media (min-width: 992px) {
+  .c-link-cta {
+    font-size: 30px;
+    line-height: 70px;
+    font-weight: 600;
+    padding: 24px 78px;
+    box-shadow: 0px 3px 6px gray;
+  }
+}
+
+/*
+    Component: white box
+    ---
+    
+*/
+.c-white-box {
+  display: inline-block;
+  text-decoration: none;
+  /* letter-spacing: 2px; */
+  font-size: 16px;
+  line-height: 40px;
+  font-weight: 600;
+  padding: 16px 0px 16px 32px;
+  /* transition-duration: 0.25s;
+  transition-timing-function: ease-in-out; */
+  background: #fff;
+  /* background-size: 200% auto; */
+  border-radius: 7px;
+  box-shadow: 0px 3px 6px;
+}
+
+@media (min-width: 576px) {
+  .c-white-box {
+    padding: 16px 0px 16px 64px;
+  }
+}
+
+/*
+    Component: warning
+    ---
+    
+*/
+.c-warning {
+  display: inline-block;
+  text-decoration: none;
+  /* letter-spacing: 2px; */
+  font-size: 16px;
+  line-height: 40px;
+  font-weight: 600;
+  padding: 16px 16px;
+  /* transition-duration: 0.25s;
+  transition-timing-function: ease-in-out; */
+  background: #b3bcff;
+  /* background-size: 200% auto; */
+  border-radius: 7px;
+  box-shadow: 0px 3px 6px gray;
+  margin-bottom: 24px;
+}
+.c-paddig-warning {
+  padding-top: 16px;
+}
+.c-nav__link-details {
+  text-decoration: none;
+  font-weight: 500;
+  display: block;
+}
+
+@media (min-width: 1200px) {
+  .c-padding-warningtext {
+    padding-top: 12px;
+  }
+  .c-warning {
+    padding: 10px 350px;
+  }
+}
+
+/*
+    Component: filter Today week month
+    ---
+    
+*/
+
+.c-filter {
+  display: inline-block;
+  text-decoration: none;
+  /* letter-spacing: 2px; */
+  font-size: 16px;
+  line-height: 40px;
+  font-weight: 600;
+  padding: 41px 18px 40px 19px !important;
+  margin: 0px 8px 12px;
+  /* transition-duration: 0.25s;
+  transition-timing-function: ease-in-out; */
+  background: #dee2ff;
+  /* background-size: 200% auto; */
+  border-radius: 7px;
+  box-shadow: 0px 3px 6px;
+  text-align: center;
+}
+
+.c-filter__today {
+  padding: 41px 16.7px 40px 16px !important;
+}
+
+.c-filter__thisweek {
+  padding: 31px 20.2px 25px 19px !important;
+}
+
+.c-filter__thismonth {
+  padding: 31px 14.2px 25px 14px !important;
+}
+
+.c-filter:visited,
+.c-filter:active {
+  box-shadow: 0px 3px 6px #152ed6;
+}
+
+.c-filter:hover,
+.c-filter:focus {
+  box-shadow: 0px 3px 6px #152ed6;
+}
+
+@media (min-width: 724px) {
+  .c-filter__today {
+    padding: 40px 18px 40px 18px !important;
+  }
+
+  .c-filter__thisweek {
+    padding: 41px 21.4px 13px 22px !important;
+  }
+
+  .c-filter__thismonth {
+    padding: 40px 16.4px 14px 16px !important;
+  }
+}
+
+/*
+    Component: CTA link
+    ---
+    Small cta link with custom animation
+*/
+
+.c-submit {
+  display: inline-block;
+  text-decoration: none;
+  /* letter-spacing: 2px; */
+  font-size: 16px;
+  line-height: 40px;
+  font-weight: 600;
+  padding: 9px 96px;
+  transition-duration: 0.25s;
+  transition-timing-function: ease-in-out;
+  background: #152ed6;
+  background-size: 200% auto;
+  border-radius: 4px;
+  box-shadow: 0px 3px 6px gray;
+  color: #fff;
+}
+
+.c-submit:visited,
+.c-submit:active {
+  color: #fff;
+  box-shadow: 0px 3px 6px #152ed6;
+}
+
+.c-submit:hover {
+  color: #f2f3f7;
+  background-position: right center;
+  box-shadow: inset 0 0 0 1px rgba(138, 140, 153, 0.4), 0 0 7px rgba(21, 46, 214, 0.8);
+}
+
+@media (min-width: 992px) {
+  .c-submit {
+    color: #fff;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 600;
+    padding: 16px 70px;
+    box-shadow: 0px 3px 6px gray;
+  }
+}
+
+/*
+    Component: delete
+    ---
+    
+*/
+.c-delete {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  background-color: #bebfcc;
+  box-shadow: 0px 3px 6px gray;
+}
+
+.c-delete,
+.c-delete:visited,
+.c-delete:active {
+  color: #000;
+}
+
+/*
+    Component: mobile nav
+    ---
+    Dedicated mobile nav component
+*/
+
+.c-mobile-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 100vh;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.has-mobile-nav .c-mobile-nav {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.25s;
+}
+
+.c-mobile-nav__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.c-mobile-nav__bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #202024;
+  will-change: opacity;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.has-mobile-nav .c-mobile-nav__bg {
+  opacity: 0.5;
+}
+
+.c-mobile-nav__body {
+  position: relative;
+  padding: 24px;
+  height: 100vh;
+  width: 100vw;
+  background-color: #fff;
+  will-change: transform;
+  transform: translateX(-100%);
+  transition: 0.25s ease;
+}
+
+.has-mobile-nav .c-mobile-nav__body {
+  transform: translateX(0);
+}
+
+.c-page {
+  position: relative;
+  will-change: transform;
+  transition: transform 0.25s ease;
+}
+
+.has-mobile-nav .c-page {
+  /* transform: scale(.98); */
+  transform: translateX(25%);
+  /* transform: translateX(100%); */
+}
+
+@media (min-width: 768px) {
+  .c-mobile-nav__body {
+    padding: 48px;
+  }
+}
+
+@media (min-width: 992px) {
+  /* Hide the mobile nav on larger viewports even whent it's open on smaller screens */
+  .c-mobile-nav {
+    display: none !important;
+  }
+}
+
+.c-backgroundcolor {
+  background-color: #b3bcff;
+}
+
+/*
+    Component: text
+    ---
+   
+*/
+.c-text {
+  width: 308px;
+  border: none;
+  padding: 24px;
+  border-radius: 7px;
+  box-shadow: 0px 3px 3px gray;
+}
+
+@media (min-width: 992px) {
+  .c-text {
+    width: 385px;
+  }
+}
+
+.c-padding-svg {
+  padding-right: 8px;
+}
+
+.c-label-with-delivery {
+  font-size: 9px;
+  line-height: 8px;
+}
+
+/*------------------------------------*\
+  #UTILITIES
+\*------------------------------------*/
+.u-font-size-h2 {
+  font-size: 52px;
+}
+.u-font-size-p {
+  font-size: 20px;
+}
+
+@media (min-width: 992px) {
+  .u-font-size-label {
+    font-size: 11px;
+  }
+}
+
+/*
+    Utilities: spacing
+    ---
+    Utility classes to put specific margins and paddings onto elements
+*/
+
+.u-color-xxx-light {
+  color: white;
+}
+
+.u-pt-clear {
+  padding-top: 0 !important;
+}
+
+.u-mb-clear {
+  margin-bottom: 0 !important;
+}
+
+.u-mb-xs {
+  margin-bottom: 4px !important;
+}
+
+.u-mb-sm {
+  margin-bottom: 8px !important;
+}
+
+.u-mb-md {
+  margin-bottom: 16px !important;
+}
+
+.u-mb-lg {
+  margin-bottom: 32px !important;
+}
+
+.u-mb-xl {
+  margin-bottom: 48px !important;
+}
+
+/*
+    Utilities: max-width
+    ---
+    Utility classes to put specific max widths onto elements
+*/
+
+.u-max-width-xs {
+  max-width: 18em !important;
+}
+
+.u-max-width-sm {
+  max-width: 39em !important;
+}
+
+.u-max-width-md {
+  max-width: 50em !important;
+}
+
+.u-max-width-lg {
+  max-width: 56.444444444444444444444444444444em !important;
+}
+
+.u-max-width-none {
+  max-width: none !important;
+}
+
+/*
+    Utility: Flex
+    ---
+    Utility classes to put specific flex properties onto elements
+    Will be mostly used on o-layout__item
+*/
+
+.u-flex-basis-auto {
+  flex-basis: auto !important;
+}
+
+.u-flex-grow-1 {
+  flex-grow: 1 !important;
+}
+
+.u-1-of-2 {
+  flex-basis: calc(100% / 2) !important;
+}
+
+.u-1-of-3 {
+  flex-basis: calc(100% / 3) !important;
+}
+
+.u-2-of-3 {
+  flex-basis: calc(100% / 3 * 2) !important;
+}
+
+.u-1-of-4 {
+  flex-basis: calc(100% / 4) !important;
+}
+
+.u-3-of-4 {
+  flex-basis: calc(100% / 4 * 3) !important;
+}
+
+.u-1-of-5 {
+  flex-basis: calc(100% / 5) !important;
+}
+
+.u-2-of-5 {
+  flex-basis: calc(100% / 5 * 2) !important;
+}
+
+.u-3-of-5 {
+  flex-basis: calc(100% / 5 * 3) !important;
+}
+
+.u-4-of-5 {
+  flex-basis: calc(100% / 5 * 4) !important;
+}
+
+.u-1-of-6 {
+  flex-basis: calc(100% / 6) !important;
+}
+
+.u-5-of-6 {
+  flex-basis: calc(100% / 6 * 5) !important;
+}
+.u-1-of-8 {
+  flex-basis: calc(100% / 8) !important;
+}
+.u-7-of-8 {
+  flex-basis: calc(100% / 8 * 7) !important;
+}
+
+@media (min-width: 576px) {
+  .u-1-of-2-bp1 {
+    flex-basis: calc(100% / 2) !important;
+  }
+  .u-1-of-3-bp1 {
+    flex-basis: calc(100% / 3) !important;
+  }
+  .u-2-of-3-bp1 {
+    flex-basis: calc(100% / 3 * 2) !important;
+  }
+  .u-1-of-4-bp1 {
+    flex-basis: calc(100% / 4) !important;
+  }
+  .u-3-of-4-bp1 {
+    flex-basis: calc(100% / 4 * 3) !important;
+  }
+  .u-1-of-5-bp1 {
+    flex-basis: calc(100% / 5) !important;
+  }
+  .u-2-of-5-bp1 {
+    flex-basis: calc(100% / 5 * 2) !important;
+  }
+  .u-3-of-5-bp1 {
+    flex-basis: calc(100% / 5 * 3) !important;
+  }
+  .u-4-of-5-bp1 {
+    flex-basis: calc(100% / 5 * 4) !important;
+  }
+  .u-1-of-6-bp1 {
+    flex-basis: calc(100% / 6) !important;
+  }
+  .u-5-of-6-bp1 {
+    flex-basis: calc(100% / 6 * 5) !important;
+  }
+  .u-1-of-8-bp1 {
+    flex-basis: calc(100% / 8) !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .u-1-of-2-bp2 {
+    flex-basis: calc(100% / 2) !important;
+  }
+  .u-1-of-3-bp2 {
+    flex-basis: calc(100% / 3) !important;
+  }
+  .u-2-of-3-bp2 {
+    flex-basis: calc(100% / 3 * 2) !important;
+  }
+  .u-1-of-4-bp2 {
+    flex-basis: calc(100% / 4) !important;
+  }
+  .u-3-of-4-bp2 {
+    flex-basis: calc(100% / 4 * 3) !important;
+  }
+  .u-1-of-5-bp2 {
+    flex-basis: calc(100% / 5) !important;
+  }
+  .u-2-of-5-bp2 {
+    flex-basis: calc(100% / 5 * 2) !important;
+  }
+  .u-3-of-5-bp2 {
+    flex-basis: calc(100% / 5 * 3) !important;
+  }
+  .u-4-of-5-bp2 {
+    flex-basis: calc(100% / 5 * 4) !important;
+  }
+  .u-1-of-6-bp2 {
+    flex-basis: calc(100% / 6) !important;
+  }
+  .u-5-of-6-bp2 {
+    flex-basis: calc(100% / 6 * 5) !important;
+  }
+  .u-1-of-8-bp2 {
+    flex-basis: calc(100% / 8) !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .u-1-of-2-bp3 {
+    flex-basis: calc(100% / 2) !important;
+  }
+  .u-1-of-3-bp3 {
+    flex-basis: calc(100% / 3) !important;
+  }
+  .u-2-of-3-bp3 {
+    flex-basis: calc(100% / 3 * 2) !important;
+  }
+  .u-1-of-4-bp3 {
+    flex-basis: calc(100% / 4) !important;
+  }
+  .u-3-of-4-bp3 {
+    flex-basis: calc(100% / 4 * 3) !important;
+  }
+  .u-1-of-5-bp3 {
+    flex-basis: calc(100% / 5) !important;
+  }
+  .u-2-of-5-bp3 {
+    flex-basis: calc(100% / 5 * 2) !important;
+  }
+  .u-3-of-5-bp3 {
+    flex-basis: calc(100% / 5 * 3) !important;
+  }
+  .u-4-of-5-bp3 {
+    flex-basis: calc(100% / 5 * 4) !important;
+  }
+  .u-1-of-6-bp3 {
+    flex-basis: calc(100% / 6) !important;
+  }
+  .u-5-of-6-bp3 {
+    flex-basis: calc(100% / 6 * 5) !important;
+  }
+  .u-1-of-8-bp3 {
+    flex-basis: calc(100% / 8) !important;
+  }
+  .u-7-of-8-bp3 {
+    flex-basis: calc(100% / 8 * 7) !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .u-1-of-2-bp4 {
+    flex-basis: calc(100% / 2) !important;
+  }
+  .u-1-of-3-bp4 {
+    flex-basis: calc(100% / 3) !important;
+  }
+  .u-2-of-3-bp4 {
+    flex-basis: calc(100% / 3 * 2) !important;
+  }
+  .u-1-of-4-bp4 {
+    flex-basis: calc(100% / 4) !important;
+  }
+  .u-3-of-4-bp4 {
+    flex-basis: calc(100% / 4 * 3) !important;
+  }
+  .u-1-of-5-bp4 {
+    flex-basis: calc(100% / 5) !important;
+  }
+  .u-2-of-5-bp4 {
+    flex-basis: calc(100% / 5 * 2) !important;
+  }
+  .u-3-of-5-bp4 {
+    flex-basis: calc(100% / 5 * 3) !important;
+  }
+  .u-4-of-5-bp4 {
+    flex-basis: calc(100% / 5 * 4) !important;
+  }
+  .u-1-of-6-bp4 {
+    flex-basis: calc(100% / 6) !important;
+  }
+  .u-5-of-6-bp4 {
+    flex-basis: calc(100% / 6 * 5) !important;
+  }
+  .u-1-of-8-bp4 {
+    flex-basis: calc(100% / 8) !important;
+  }
+}
+
+/*------------------------------------*\
+  #MEDIA
+\*------------------------------------*/
+
+/*
+    Print styles.
+    ---
+    Inlined to avoid the additional HTTP request:
+    http://www.phpied.com/delay-loading-your-print-css/
+*/
+
+@media print {
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster: http://www.sanbeiji.com/archives/953 */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: ' (' attr(href) ')';
+  }
+  abbr[title]:after {
+    content: ' (' attr(title) ')';
+  }
+  /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+  a[href^='#']:after,
+  a[href^='javascript:']:after {
+    content: '';
+  }
+  pre {
+    white-space: pre-wrap !important;
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  /*
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}

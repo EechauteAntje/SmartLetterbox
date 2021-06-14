@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Slimme Brievenbus</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="description" content="This is my HTML5 boilerplate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="##152ed6" />
+
+    <link rel="icon" href="favicon.svg" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="manifest" href="manifest.json" />
+
+    <link rel="stylesheet" href="https://use.typekit.net/pqc6rkv.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="style/normalize.css" />
+    <link rel="stylesheet" href="style/screen.css" />
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js" integrity="sha384-LzhRnpGmQP+lOvWruF/lgkcqD+WDVt9fU3H4BWmwP5u5LTmkUGafMcpZKNObVMLU" crossorigin="anonymous"></script>
+    <script src="script/app.js"></script>
+    <script src="script/datahandler.js"></script>
+  </head>
+  <body class="js-info">
+    <header class="o-row c-backgroundcolor">
+      <div class="o-container">
+        <div class="c-header">
+          <div class="c-header__logo">
+            <a class="c-nav__linkLogo" href="index.html">
+              <h1 class="c-logo">Smart letterbox</h1>
+            </a>
+          </div>
+          <div class="c-header__nav">
+            <nav class="c-nav">
+              <ul class="o-list c-nav__list">
+                <!-- <li class="c-nav__item"><a class="c-nav__link" href="index.html">Home</a></li> -->
+                <li class="c-nav__item"><a class="c-nav__link" href="analyses.html" style="color: #0015a8">Analyses</a></li>
+                <li class="c-nav__item"><a class="c-nav__link" href="message.html">Message mailman</a></li>
+                <!-- <li class="c-nav__item c-nav__item--cta"><a class="c-link-cta" href="#!">Create account</a></li> -->
+              </ul>
+            </nav>
+          </div>
+          <div class="c-header__mobile-nav-trigger">
+            <button class="o-button-reset c-nav-trigger js-toggle-nav">
+              <svg class="c-nav-trigger__svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section class="o-row">
+      <div class="o-container">
+        <div class="o-section o-section--xl">
+          <div class="o-layout">
+            <div class="o-layout__item ">
+              <h2 style="font-size: 22px;">
+                Analyse your letterbox
+                <!-- <svg
+                  data-toggle="popover"
+                  title="Info"
+                  data-content="This app detects when there's 
+                  movement around your box 
+                  and when it's opened.
+                  A detection with this icon (       ) 
+                  means that it's happened 
+                  with a delivery."
+                  class="js-infoButton"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                >
+                  <path d="M0,0H13.354V13.354H0Z" fill="none" />
+                  <path d="M7.564,2a5.564,5.564,0,1,0,5.564,5.564A5.566,5.566,0,0,0,7.564,2Zm.556,8.346H7.008V7.008H8.12Zm0-4.451H7.008V4.782H8.12Z" transform="translate(-0.887 -1.444)" />
+                </svg> -->
+              </h2>
+            </div>
+            <!-- <div class="info o-layout__item u-1-of-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13.354" height="13.354" viewBox="0 0 13.354 13.354">
+                <path d="M0,0H13.354V13.354H0Z" fill="none" />
+                <path d="M7.564,2a5.564,5.564,0,1,0,5.564,5.564A5.566,5.566,0,0,0,7.564,2Zm.556,8.346H7.008V7.008H8.12Zm0-4.451H7.008V4.782H8.12Z" transform="translate(-0.887 -1.444)" />
+              </svg>
+              <span class="extra-info">
+                This app detects when there's movement around your box and when it's opened. A detection with this icon (
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <g transform="translate(-312 -224)">
+                    <g transform="translate(312 224)">
+                      <path d="M0,0H24V24H0Z" fill="none" />
+                      <path d="M10,20V14h4v6h5V12h3L12,3,2,12H5v8Z" fill="#152ed6" />
+                    </g>
+                    <g transform="translate(327 238)" fill="#fff" stroke="#fff" stroke-width="1">
+                      <circle cx="4" cy="4" r="4" stroke="none" />
+                      <circle cx="4" cy="4" r="3.5" fill="none" />
+                    </g>
+                    <g transform="translate(326 237)">
+                      <path d="M0,0H10V10H0ZM0,0H10V10H0Z" fill="none" />
+                      <path d="M8.079,4.325,5.333,7.071l-1.5-1.492-.587.588L5.333,8.25,8.667,4.917ZM6.167,2a4.167,4.167,0,1,0,4.167,4.167A4.168,4.168,0,0,0,6.167,2Zm0,7.5A3.333,3.333,0,1,1,9.5,6.167,3.332,3.332,0,0,1,6.167,9.5Z" transform="translate(-1.167 -1.167)" fill="#152ed6" />
+                    </g>
+                  </g>
+                </svg>
+                ) means that it's happened with a delivery.</span
+              >
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="o-row">
+      <div class="o-container">
+        <div class="o-section o-section--xl">
+          <div class="o-layout o-layout--align-content-space-around">
+            <div class="js-filter o-layout__item c-filter c-filter__today u-1-of-6" data-filter="today">
+              <p>Today</p>
+            </div>
+            <div class="js-filter js-filterPIR o-layout__item c-filter c-filter__thisweek u-1-of-6" data-filter="week">
+              <p>This week</p>
+            </div>
+            <div class="js-filter js-filterPIR o-layout__item c-filter c-filter__thismonth u-1-of-6" data-filter="month">
+              <p>This month</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="o-row">
+      <div class="o-container">
+        <div class="o-section o-section--xl">
+          <div class="o-layout o-layout--gutter o-layout--align-center">
+            <div class="o-layout__item u-1-of-2-bp3">
+              <h2>Movement around letterbox</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="js-amount-pir"></div>
+    <div class="js-dataPir">
+      <section class="o-row o-row--sm o-row--delivered">
+        <div class="o-container">
+          <div class="o-section o-section--xl">
+            <div class="o-layout o-layout--gutter o-layout--align-center">
+              <div class="o-layout__item u-1-of-2-bp3">
+                <p>Loading...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- <section class="o-row o-row--sm o-row--delivered">
+        <div class="o-container c-white-box">
+          <div class="o-section o-section--xl">
+            <div class="o-layout o-layout--align-center">
+              <div class="o-layout__item u-3-of-4 u-3-of-4-bp3">
+                <p>on 22-02-2021 at 13:22</p>
+              </div>
+              <div class="o-layout o-layout__item u-1-of-4 u-1-of-4-bp3 o-layout--justify-center o-layout--align-end" style='padding-right: 10px;'>
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+                  <g transform="translate(-312 -224)">
+                    <g transform="translate(312 224)">
+                      <path d="M0,0H40V40H0Z" fill="none" />
+                      <path d="M15.333,31.333v-10H22v10h8.333V18h5L18.667,3,2,18H7V31.333Z" transform="translate(1.333 2)" fill="#152ed6" />
+                    </g>
+                    <g transform="translate(337 247)" fill="#fff" stroke="#fff" stroke-width="1">
+                      <ellipse cx="7" cy="6.5" rx="7" ry="6.5" stroke="none" />
+                      <ellipse cx="7" cy="6.5" rx="6.5" ry="6" fill="none" />
+                    </g>
+                    <g transform="translate(335.333 245.667)">
+                      <path d="M0,0H16.667V16.667H0ZM0,0H16.667V16.667H0Z" fill="none" />
+                      <path d="M12.132,5.875,7.556,10.451,5.062,7.965l-.979.979,3.472,3.472,5.556-5.556ZM8.944,2a6.944,6.944,0,1,0,6.944,6.944A6.947,6.947,0,0,0,8.944,2Zm0,12.5A5.556,5.556,0,1,1,14.5,8.944,5.554,5.554,0,0,1,8.944,14.5Z" transform="translate(-0.611 -0.611)" fill="#152ed6" />
+                    </g>
+                  </g>
+                </svg>
+                <p class="u-font-size-label c-label-with-delivery">with delivery</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> -->
+    </div>
+    <section class="o-row">
+      <div class="o-container">
+        <div class="o-section o-section--xl">
+          <div class="o-layout o-layout--gutter o-layout--align-center">
+            <div class="o-layout__item u-1-of-2-bp3">
+              <h2>Top was opened</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="js-amount-accelero"></div>
+    <div class="js-dataAccelero">
+      <section class="o-row o-row--sm o-row--delivered">
+        <div class="o-container">
+          <div class="o-section o-section--xl">
+            <div class="o-layout o-layout--gutter o-layout--align-center">
+              <div class="o-layout__item u-1-of-2-bp3">
+                <p>Loading...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <aside class="c-mobile-nav">
+      <div class="c-mobile-nav__body">
+        <div class="c-mobile-nav__header">
+          <a class="c-nav__linkLogo" href="index.html">
+            <h1 class="c-logo">Smart letterbox</h1>
+          </a>
+
+          <button class="o-button-reset c-nav-trigger js-toggle-nav">
+            <svg class="c-nav-trigger__svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="c-mobile-nav__nav c-mobile-nav__nav--main">
+          <nav class="c-nav">
+            <ul class="o-list c-nav__list">
+              <li class="c-nav__item">
+                <div class="o-layout">
+                  <div class="o-layout__item u-1-of-6 u-1-of-8-bp1">
+                    <a class="c-nav__link" href="analyses.html">
+                      <svg class="c-nav-trigger__svg" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+                      </svg>
+                    </a>
+                  </div>
+                  <div class="o-layout__item u-1-of-2">
+                    <a class="c-nav__link" href="analyses.html">Analyses</a>
+                  </div>
+                </div>
+              </li>
+              <li class="c-nav__item">
+                <div class="o-layout">
+                  <div class="o-layout__item u-1-of-6 u-1-of-8-bp1">
+                    <a class="c-nav__link" href="message.html">
+                      <svg class="c-nav-trigger__svg" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+                        <g>
+                          <path d="M0,0h24v24H0V0z" fill="none" />
+                          <path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z" />
+                        </g>
+                      </svg>
+                    </a>
+                  </div>
+                  <div class="o-layout__item u-3-of-4">
+                    <a class="c-nav__link" href="message.html">Message mailman</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </aside>
+  </body>
+  <footer>
+    <br />
+  </footer>
+</html>
